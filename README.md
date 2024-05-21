@@ -6,7 +6,7 @@ de una aplicación web:
 
 [Casos de prueba](https://docs.google.com/document/d/1EJuX47GgvlWCDRaRF2vSgwzPniK1KFF5/edit?usp=sharing&ouid=113813683545231967028&rtpof=true&sd=true).
 
-Teniendo en cuenta las historias de usuario se realizaon las siguientes pruebas:
+se realizaon las siguientes pruebas:
 
 ## Prueba validación de registro y campos obligatorios
 
