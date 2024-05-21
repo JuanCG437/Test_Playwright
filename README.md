@@ -260,4 +260,4 @@ test('test', async ({ page }) => {
 
 >[!IMPORTANT]
 >
->La prueba presenta algunos fallos debido que playwright puede presentar pruebas como fallidas cuando se excede cierto tiempo limite, cuando  enrealidad la prueba no deberia de fallar, en este caso falla debido a que no puede encontrar un objeto del DOM requisito para el método de prueba.
+>La prueba presenta algunos fallos debido que playwright puede presentar pruebas como fallidas cuando se excede cierto tiempo limite, cuando  enrealidad la prueba no deberia de fallar, en este caso falla debido a que no puede encontrar un objeto del **DOM**, requisito necesario para realizar las validaciones en el método de prueba, por lo tanto la prueba se considera en espera.
