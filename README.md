@@ -1,19 +1,20 @@
-# Test_Playwright
-Usando la herramienta playwright para pruebas automatizadas de un sitio web
+# 🧪  **Test_Playwright**
 
-El proyecto realiza una serie de pruebas teniendo en cuenta las siguientes historias de usuario
-de una aplicación web:
+Usando la herramienta Playwright para pruebas automatizadas en una aplicación web para pruebas.
 
-[Casos de prueba](https://docs.google.com/document/d/1EJuX47GgvlWCDRaRF2vSgwzPniK1KFF5/edit?usp=sharing&ouid=113813683545231967028&rtpof=true&sd=true).
+Las pruebas se realizan de acuerdo a los siguientes Test cases (casos de prueba):
 
-se realizaon las siguientes pruebas:
+---
 
-## Prueba validación de registro y campos obligatorios
+📌 **Casos de prueba**: [consulta los casos de prueba ](https://docs.google.com/document/d/1EJuX47GgvlWCDRaRF2vSgwzPniK1KFF5/edit?usp=sharing&ouid=113813683545231967028&rtpof=true&sd=true).
 
-la prueba valida que para registrarse es necesario proporcionar un login, nombre, 
-apellido y contraseña, además de verificarque todos los campos sean obligatorios
+---
 
-```
+## 📍**Prueba: Validación de registro y campos obligatorios**
+
+✅ Verifica que para registrarse es necesario proporcionar un login, nombre, apellido y contraseña. También se valida que todos los campos sean obligatorios para el registro.
+
+```typescript
 import { test, expect } from '@playwright/test';
 
 test('verifies that all fields are required for successful registration', async ({ page }) => {
@@ -32,14 +33,16 @@ test('verifies that all fields are required for successful registration', async 
   await page.getByText(' Registration is sucessful ').click();
 });
 ```
-la prueba valida que todos los campos son obligatorios.
 
-## Prueba validación de requisitos de contraseña
+📌 **Resultado esperado**: Todos los campos son obligatorios para completar el registro.
 
-La prueba valida que los requisitos de registro de la contraseña es que debe de 
-tener mínimo 6 caracteres, una mayúscula y un caracter especial.
+---
 
-```
+## 🔑 **Prueba: Validación de requisitos de contraseña**
+
+✅ Verifica que la contraseña debe tener al menos 8 caracteres, una mayúscula, un número y un carácter especial.
+
+```typescript
 import { test, expect } from '@playwright/test';
 
 test('verifies that during user registration the requirements to create a password with a minimum of 6 characters, with a capital letter, a number, and a special character are validated.', async ({ page }) => {
@@ -58,13 +61,16 @@ test('verifies that during user registration the requirements to create a passwo
   await page.getByText('InvalidPasswordException:').click();
 });
 ```
-La prueba dió como resultado que deben de ser 8 caracteres mínimos y no 6.
 
-## Prueba valida un unico registro de usuario
+📌 **Resultado esperado**: Se muestra un error si la contraseña no cumple con los requisitos.
 
-La prueba valida que solo se puede registar un unico usuario.
+---
 
-```
+## 🪪 **Prueba: Valida un unico registro de usuario**
+
+✅ Verifica que un usuario sólo se pueda registrar una unica vez.
+
+```typescript
 import { test, expect } from '@playwright/test';
 
 test('Verifies that a user can only register once', async ({ page }) => {
@@ -83,14 +89,16 @@ test('Verifies that a user can only register once', async ({ page }) => {
   await page.getByText(' UsernameExistsException: User already exists ').click();
 });
 ```
-El resultado de la prueba es que efectivamente solo se puede registrar un unico usuario una sola vez.
 
-## Prueba valida actualización de usuario
+📌 **Resultado esperado**: Se muestra un error indicando que el usuario ya existe en la aplicación.
 
-La prueba valida que el usario pueda actualizar los campos de nombre, apellido, dirección,
-télefono y hobby
+---
 
-```
+## 🔄 **Prueba: Validación de actualización de usuario**
+
+✅ Verifica que un usuario pueda actualziar sus datos personales.
+
+```typescript
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
@@ -113,14 +121,16 @@ test('test', async ({ page }) => {
   await page.getByText('The profile has been saved').first().click();
 });
 ```
-La actualización de información se realizó con éxtio.
 
-## Prueba validación requisitos de actualización de contraseña
+📌 **Resultado esperado**: Los datos actualizados se guardan correctamente.
 
-La prueba valida que se cumplan ciertos requerimientos para actualizar la contraseña los cuales son, 
-tener 8 caracteres minimo, una mayúscula y un caracter especial.
+---
 
-```
+## 🛡️ **Prueba: Validación requisitos de actualización de contraseña**
+
+✅ Verifica que la contraseña debe tener al menos 8 caracteres, una mayúscula, un número y un caracter especial para poder ser actualizada.
+
+```typescript
 import { test, expect } from '@playwright/test';
 
 test('verify that during the user update the requirements for changing a password are validated with a minimum of 8 characters, with a capital letter, a number, and a special character', async ({ page }) => {
@@ -141,14 +151,16 @@ test('verify that during the user update the requirements for changing a passwor
   await page.getByText('The profile has been saved').first().click();
 });
 ```
-La prueba se validó con éxito y se corroboraron los requisitos de actualización de contraseña.
 
-## Prueba valida campos (nombre y apellido) obligatorios
+📌 **Resultado esperado**: Se muestra un error si no se cumplen los requerimientos.
 
-La prueba valida que algunos campos son obligatorios para poder actualziar la información, 
-es decir no pueden estar en estado "vacío" o "nulo".
+---
 
-```
+## **Prueba: Valida campos (nombre y apellido) obligatorios**
+
+✅ Valida que los campos nombre y apellido son obligatorios para poder actualizar la información del usuario.
+
+```typescript
 import { test, expect } from '@playwright/test';
 
 test('Verify that the “first name” and “last name” fields cannot be empty for their respective update.', async ({ page }) => {
@@ -165,15 +177,16 @@ test('Verify that the “first name” and “last name” fields cannot be empt
   await page.getByText('Last Name is required').click();
 });
 ```
-Efectivamente esos campos son obligatorios para realizar una actualización de usuario éxitosa.
 
-## Prueba valida votar para usuarios autenticados
+📌 **Resultado esperado**: Mensaje o modal indicando error al actualizar la información del usuario si los campos obligatorios están vaciós o nulos.
 
-La prueba valida que solo se le permita realizar votaciones a los usuarios autenticados por el sitio web.
+---
 
-En esta primera parte se evalua la opción de votar cuando el usuario está logueado.
+## 🎟 **Prueba: Valida votar para usuarios autenticados**
 
-```
+✅ Verifica que solo los usuarios auntenticados puedan votar.
+
+```typescript
 import { test, expect } from '@playwright/test';
 
 test('verifies that an authenticated user is allowed to vote', async ({ page }) => {
@@ -190,10 +203,16 @@ test('verifies that an authenticated user is allowed to vote', async ({ page }) 
   await page.getByText('Thank you for your vote!').click();
 });
 ```
-Se verifica que el usuario puede realizar votaciones
 
-En esta segunda parte se valida que un usuario no autenticado no puede realizar votaciones
-```
+📌 **Resultado esperado**: Se verifica que el usuario puede realizar votaciones
+
+---
+
+## ❌ **Prueba: Validación de restricción de votación para usuarios no autenticados**
+
+🚫 En esta segunda parte se valida que un usuario no autenticado no puede realizar votaciones
+
+```typescript
 test('a user who is not auntenticado can not vote', async ({ page }) => {
     await page.goto('https://buggy.justtestit.org/register');
     await page.getByRole('link', { name: 'Buggy Rating' }).click();
@@ -202,12 +221,15 @@ test('a user who is not auntenticado can not vote', async ({ page }) => {
 });
 ```
 
-## Prueba valida unico voto por usuario
+📌 **Resultado esperado**: Solo los usuarios autenticados pueden emitir votos.
 
-La prueba valida que un usuario autenticado solo puede realizar una unica votación,
-a un carro deportivo.
+---
 
-```
+## 🛑 **Prueba: Valida único voto por usuario**
+
+🚫 Valida que unicamente se puede realizar un único voto por usuario para cada artículo.
+
+```typescript
 import { test, expect } from '@playwright/test';
 
 test('verifies that an authenticated user can only vote once per car', async ({ page }) => {
@@ -220,15 +242,16 @@ test('verifies that an authenticated user can only vote once per car', async ({ 
   await page.getByText('Thank you for your vote!').click();
 });
 ```
-Efectivamente se comprueba que un usuario solo puede votar una sola vez por carro.
 
-## Prueba valida realizar comentarios en votacion
+📌 **Resultado esperado:** Sólo se puede realizar un voto por artículo.
 
-La prueba valida que permita al usuario realizar un comentario en la votación de un respectivo,
-carro deportivo, además de verificar que relamente si se vea efectuado el comentario en la tabla de comentarios
-y que el contador de votos incremente.
+---
 
-```
+## 📖 **Prueba: valida realizar comentarios en votación**
+
+✅ Se valida que el usuario pueda realziar comentarios en cada artículo en el que haya votado y que el contador de votos incremente al haber realizado el voto.
+
+```typescript
 import { test, expect } from '@playwright/test';
 import { text } from 'stream/consumers';
 
@@ -257,6 +280,21 @@ test('test', async ({ page }) => {
   await expect(label).toHaveText('no me gusta prefiero otros');
 });
 ```
+
+📌 **Resultado esperado**: El comentario es visible en la tabla de comentarios y el contador de votos incrementa de número al realizar un voto.
+
+---
+
+## 📝 **Conclusiones y mejoras**
+
+📌**Recomendaciones**:
+1. Implementar `beforeEach()` para evitar la repetición de código.
+2. Agregar más casos negativos o de invalidación para valdiaciones más robustas.
+3. Usar `data-test-id` en los elementos HTML en lugar de selectores CSS para mayor estabilidad.
+
+📌 **Estado del proyecto:** 🔁 **En progreso** (algunas pruebas necesitan refinamiento a problemas para tiemout en Playwright).
+
+📌 **Ultima actualización**: _27 de marzo de 2025_ 
 
 >[!IMPORTANT]
 >
